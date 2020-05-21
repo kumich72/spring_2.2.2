@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
 <%--<jsp:useBean id="cars" class="web.model.Car" scope="page" />--%>
 <html>
 <head>
@@ -8,8 +9,9 @@
 <body>
 <h3>Список машин</h3>
 
-<h1>sp-<spring:message code="title" /></h1>
-<%--<s:message code="title"></s:message>--%>
+<a href="${pageContext.request.contextPath   }/cars?locale=en">Eng</a>
+<a href="${pageContext.request.contextPath   }/cars?locale=ru">Rus</a>
+<h1><spring:message code="title" /></h1>
 <table border="1" cellspacing="0" cellpadding="2">
     <tr>
         <th>Id</th>
