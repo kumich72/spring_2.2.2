@@ -24,7 +24,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/WEB-INF/pages/**").addResourceLocations("/pages/");
+        registry.addResourceHandler("/WEB-INF/pages/**").addResourceLocations("/pages/").addResourceLocations("/resources/**");
     }
 
     @Bean
@@ -36,17 +36,19 @@ public class WebConfig implements WebMvcConfigurer {
 
         return resolver;
     }
+
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource resourceBundleMessageSource = new ResourceBundleMessageSource();
         resourceBundleMessageSource.setBasename("messages");
+        resourceBundleMessageSource.setDefaultEncoding("UTF-8");
         return resourceBundleMessageSource;
     }
 
     @Bean
     public SessionLocaleResolver localeResolver() {
         SessionLocaleResolver sessionLocaleResolver = new SessionLocaleResolver();
-        sessionLocaleResolver.setDefaultLocale(Locale.US);
+        sessionLocaleResolver.setDefaultLocale(Locale.ENGLISH);
         return sessionLocaleResolver;
     }
 
